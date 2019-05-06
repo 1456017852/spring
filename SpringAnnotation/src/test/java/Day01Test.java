@@ -1,6 +1,9 @@
 import day01.com.naruto.bean.Person;
+import day01.com.naruto.bean.Student;
+import day01.com.naruto.config.AnnotationConfig;
 import day01.com.naruto.config.JavaConfig;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -32,7 +35,6 @@ public class Day01Test {
         }
     }
 
-
     /**
      *二、java配置类方式获取springIOC容器中的Bean对象
      * 1、创建一个JavaBean(Person类)
@@ -48,7 +50,7 @@ public class Day01Test {
     public void getJavaConfigBean(){
 
         ApplicationContext applicationContext=new AnnotationConfigApplicationContext(JavaConfig.class);
-        Person person=(Person)applicationContext.getBean("person");
+        Person person=(Person)applicationContext.getBean("person1");
         System.out.println("person:"+person);
 
         //获取springIOC容器中所有Bean对象的名称
@@ -59,14 +61,22 @@ public class Day01Test {
     }
 
     /**
-     * 二、注解方式获取springIOC容器中的Bean对象
+     * 三、注解方式获取springIOC容器中的Bean对象
      * 1、创建一个JavaBean(Student类),给其添加@Component注解使其成为一个spring组件
      * 2、编写配置类Java
      */
     @Test
     public void getAnnotationBean(){
 
+        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(AnnotationConfig.class);
+        Student student=(Student) applicationContext.getBean("student");
+        System.out.println("student"+student);
 
+        //获取springIOC容器中所有Bean对象的名称
+        String [] StrArray=applicationContext.getBeanDefinitionNames();
+        for (String beanName:StrArray){
+            System.out.println("beanName:"+beanName);
+        }
     }
 
 

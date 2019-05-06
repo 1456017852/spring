@@ -11,9 +11,9 @@ public class JavaConfig {
      *  @Bean给容器中注册一个Bean,id为方法名称，类型为返回值类型
      * @return
      */
-    @Bean
+    @Bean("person1")
     public Person person(){
-        return new Person("1","naruto","18");
+        return new Person();
     }
 
 }
