@@ -8,7 +8,7 @@
     <!-- @Controller,@Service,@Repository,@Component标识的Bean表示为spring的组件
             经过包扫描后，成为springIOC容器中的bean
     -->
-    <!--<context:component-scan base-package="day01.com.naruto"></context:component-scan>-->
+    <context:component-scan base-package="day01.com.naruto"></context:component-scan>
 
     <bean id="person" class="day01.com.naruto.bean.Person">
         <property name="id" value="1"></property>
