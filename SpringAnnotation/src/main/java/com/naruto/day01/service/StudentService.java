@@ -1,4 +1,4 @@
-package day01.com.naruto.service;
+package com.naruto.day01.service;
 
 import org.springframework.stereotype.Service;
 

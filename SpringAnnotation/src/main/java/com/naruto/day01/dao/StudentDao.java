@@ -1,4 +1,4 @@
-package day01.com.naruto.dao;
+package com.naruto.day01.dao;
 
 import org.springframework.stereotype.Repository;
 

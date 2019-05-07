@@ -1,4 +1,4 @@
-package day01.com.naruto.bean;
+package com.naruto.day01.bean;
 
 import lombok.*;
 import org.springframework.stereotype.Component;

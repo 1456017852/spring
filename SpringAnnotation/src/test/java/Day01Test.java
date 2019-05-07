@@ -1,5 +1,5 @@
-import day01.com.naruto.bean.Person;
-import day01.com.naruto.config.JavaConfig;
+import com.naruto.day01.bean.Person;
+import com.naruto.day01.config.JavaConfig;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -14,7 +14,7 @@ public class Day01Test {
      * 一、xml配置文件的方式获取springIOC容器中的Bean对象
      * 1、创建一个JavaBean(Person类)
      * 2、在spring的xml配置文件中配置该JavaBean,使其注册到springIOC容器中
-     *      <bean id="person" class="day01.com.naruto.bean.Person"></bean>
+     *      <bean id="person" class="Person"></bean>
      * 3、使用ApplicationContext context= new  ClassPathXmlApplicationContext("bean.xml")获取springIOC容器对象
      * 4、容器对象context.getBean("person")获取该类的对象;
      */

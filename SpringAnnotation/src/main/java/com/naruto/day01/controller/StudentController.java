@@ -1,4 +1,4 @@
-package day01.com.naruto.controller;
+package com.naruto.day01.controller;
 
 import org.springframework.stereotype.Controller;
 
