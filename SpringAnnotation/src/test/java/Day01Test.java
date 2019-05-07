@@ -1,5 +1,7 @@
 import com.naruto.day01.bean.Person;
+import com.naruto.day01.bean.Student;
 import com.naruto.day01.config.JavaConfig;
+
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -14,7 +16,6 @@ public class Day01Test {
      * 一、xml配置文件的方式获取springIOC容器中的Bean对象
      * 1、创建一个JavaBean(Person类)
      * 2、在spring的xml配置文件中配置该JavaBean,使其注册到springIOC容器中
-     *      <bean id="person" class="Person"></bean>
      * 3、使用ApplicationContext context= new  ClassPathXmlApplicationContext("bean.xml")获取springIOC容器对象
      * 4、容器对象context.getBean("person")获取该类的对象;
      */
@@ -36,7 +37,7 @@ public class Day01Test {
      * 1、创建一个JavaBean(Person类)
      * 2、编写JavaConfig配置类，添加注解@Configuration
      *    @Configuration:表示这是一个配置类，相当于一个spring的配置文件,同时表示该配置类也是springIOC容器中的Bean
-     * 3、@Bean给容器中注册一个Bean,id为方法名称，类型为返回值类型
+     * 3、创建一个方法添加@Bean注解(给容器中注册一个Bean),id为方法名称，类型为返回值类型
      * 4、ApplicationContext applicationContext=new AnnotationConfigApplicationContext(JavaConfig.class)获取springIOC容器对象
      * 5、容器对象context.getBean("person")获取该类的对象;
      *
@@ -45,7 +46,7 @@ public class Day01Test {
     public void getJavaConfigBean(){
 
         ApplicationContext applicationContext=new AnnotationConfigApplicationContext(JavaConfig.class);
-        Person person=(Person)applicationContext.getBean("person1");
+        Person person=(Person)applicationContext.getBean("Person1");
         System.out.println("person:"+person);
 
         //获取springIOC容器中所有Bean对象的名称
@@ -68,8 +69,8 @@ public class Day01Test {
     public void getAnnotationBean(){
 
         ApplicationContext applicationContext=new AnnotationConfigApplicationContext(JavaConfig.class);
-//        Student student=(Student) applicationContext.getBean("student");
-//        System.out.println("student"+student);
+        Student student=(Student) applicationContext.getBean("student");
+        System.out.println("student"+student);
 
         //获取springIOC容器中所有Bean对象的名称
         String [] StrArray=applicationContext.getBeanDefinitionNames();
@@ -77,6 +78,4 @@ public class Day01Test {
             System.out.println("beanName:"+beanName);
         }
     }
-
-
 }

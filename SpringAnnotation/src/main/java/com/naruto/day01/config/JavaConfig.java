@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 /**
- * 一、@Configuration:表示这是一个配置类，相当于一个spring的配置文件(同时也是springIOC容器中的Bean)
+ * @Configuration:表示这是一个配置类，相当于一个spring的配置文件(同时也是springIOC容器中的Bean)
  *
- * 二、@ComponentScan(value="day01.com.naruto"):自动扫描包
+ * @ComponentScan(value="day01.com.naruto"):自动扫描包
  *  1、value：指定要扫描的包及其子包
  *  2、excludeFilters=Fiter[]:指定要排除扫描的组件
  *  3、includeFilters=Filter[]:指定要扫描的组件(使用时要关闭默认的过滤器useDefaultFilters = false)
@@ -46,9 +46,20 @@ import org.springframework.stereotype.Service;
 public class JavaConfig {
 
     /**
-     *  @Bean给容器中注册一个Bean,id为方法名称，类型为返回值类型
+     * 1、@Bean给容器中注册一个Bean,id为方法名称，类型为返回值类型
+     *
+     *   <bean id="person" class="com.naruto.day01.bean.Person" scope="prototype">
+     *         <property name="id" value="1"></property>
+     *         <property name="name" value="naruto"></property>
+     *         <property name="age" value="18"></property>
+     *   </bean>
+     *
+     * 2、@Scope:表示该spring创建该bean时的作用域
+     *      singleton:单实例(默认值)
+     *      prototype:多实例
      * @return
      */
+    @Scope("singleton")
     @Bean("Person1")
     public Person person(){
         return new Person();
