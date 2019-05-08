@@ -1,4 +1,5 @@
 import com.naruto.day01.bean.Person;
+import com.naruto.day01.bean.ScopeBean;
 import com.naruto.day01.bean.Student;
 import com.naruto.day01.config.JavaConfig;
 
@@ -23,7 +24,7 @@ public class Day01Test {
     public void getXmlConfigBean(){
         ApplicationContext context= new  ClassPathXmlApplicationContext("bean.xml");
         Person person=(Person) context.getBean("person");
-        System.out.println("person:--->"+person);
+        System.out.println("person:"+person);
 
         //获取springIOC容器中所有Bean对象的名称
         String [] StrArray=context.getBeanDefinitionNames();
@@ -52,7 +53,7 @@ public class Day01Test {
         //获取springIOC容器中所有Bean对象的名称
         String [] StrArray=applicationContext.getBeanDefinitionNames();
         for (String beanName:StrArray){
-            System.out.println("beanName:"+beanName);
+            System.out.println("beanName:--->"+beanName);
         }
     }
 
@@ -70,12 +71,75 @@ public class Day01Test {
 
         ApplicationContext applicationContext=new AnnotationConfigApplicationContext(JavaConfig.class);
         Student student=(Student) applicationContext.getBean("student");
-        System.out.println("student"+student);
+        System.out.println("student:"+student);
 
         //获取springIOC容器中所有Bean对象的名称
         String [] StrArray=applicationContext.getBeanDefinitionNames();
         for (String beanName:StrArray){
-            System.out.println("beanName:"+beanName);
+            System.out.println("beanName:--->"+beanName);
         }
     }
+
+    /**
+     * 四.bean的作用域
+     * @scope:
+     *   singleton:单实例(默认值)
+     *      IOC启动时会调用的方法创建bean放到IOC容器中，以后每次获取就直接从容其中获取
+     *   prototype:多实例
+     *      IOC启动时会调用的方法创建bean放到IOC容器中，以后每次获取时，都会调用方法创建bean放到容器中
+     */
+
+
+    /**
+     *  单实例实例bean测试
+     */
+    @Test
+    public void testScopeSingleton(){
+
+        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(JavaConfig.class);
+        System.out.println("IOC容器对象创建完成...");
+
+        ScopeBean scopeBean=(ScopeBean) applicationContext.getBean("scopeBean");
+        ScopeBean scopeBean1=(ScopeBean) applicationContext.getBean("scopeBean");
+
+        System.out.println(scopeBean==scopeBean1);
+
+    }
+
+    /**
+     * 多实例bean测试
+     */
+    @Test
+    public void testScopePrototype(){
+
+        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(JavaConfig.class);
+        System.out.println("IOC容器对象创建完成...");
+
+        Person person=(Person) applicationContext.getBean("Person1");
+        Person person1=(Person) applicationContext.getBean("Person1");
+
+        System.out.println(person==person1);
+
+    }
+
+
+    /**
+     * 五、懒加载
+     * @Lazy:专门只对于单实例bean(IOC启动时会调用的方法创建bean放到IOC容器中)
+     * 懒加载：IOC启动时不会调用的方法创建bean放到IOC容器中，第一次获取bean时创建bean,并初始化
+     *
+     */
+    @Test
+    public void testScopeSingletonLazyBean(){
+
+        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(JavaConfig.class);
+        System.out.println("IOC容器对象创建完成...");
+
+        ScopeBean scopeBean=(ScopeBean) applicationContext.getBean("scopeBean");
+        ScopeBean scopeBean1=(ScopeBean) applicationContext.getBean("scopeBean");
+
+        System.out.println(scopeBean==scopeBean1);
+
+    }
+
 }

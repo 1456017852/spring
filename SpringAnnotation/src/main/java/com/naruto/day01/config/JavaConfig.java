@@ -1,5 +1,6 @@
 package com.naruto.day01.config;
 
+import com.naruto.day01.bean.ScopeBean;
 import com.naruto.day01.bean.Student;
 import com.naruto.day01.bean.Person;
 import org.springframework.context.annotation.*;
@@ -59,10 +60,19 @@ public class JavaConfig {
      *      prototype:多实例
      * @return
      */
+
+    @Lazy //懒加载
     @Scope("singleton")
-    @Bean("Person1")
-    public Person person(){
-        return new Person();
+    @Bean
+    public ScopeBean scopeBean(){
+        System.out.println("给容器中注册ScopeBean...");
+        return new ScopeBean();
     }
 
+    @Scope("prototype")
+    @Bean("Person1")
+    public Person person(){
+        System.out.println("给容器中注册Person...");
+        return new Person();
+    }
 }
