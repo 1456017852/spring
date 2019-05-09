@@ -16,6 +16,7 @@ public class WindowsConditionalBean implements Condition {
      */
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
         Environment environment=conditionContext.getEnvironment();
+        //获取操作系统的名称
         String str=environment.getProperty("os.name");
         System.out.println("os.name:--->"+str);
         if(str.contains("Windows")){
