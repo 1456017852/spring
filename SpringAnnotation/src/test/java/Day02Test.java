@@ -25,7 +25,5 @@ public class Day02Test {
         for (String user:users){
             System.out.println("user:--->"+user);
         }
-
-
     }
 }
