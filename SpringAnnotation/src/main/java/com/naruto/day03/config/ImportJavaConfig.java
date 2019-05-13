@@ -6,8 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import({ Yellow.class, Green.class,MyImportSeleter.class}) //导入组件
-//@Import(MyImportSeleter.class)
+@Import({ Yellow.class, Green.class,MyImportSeleter.class,MyImportBeanDefinitionRegistrar.class}) //导入组件
 public class ImportJavaConfig {
 
 }

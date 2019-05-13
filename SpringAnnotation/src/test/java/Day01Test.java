@@ -62,7 +62,7 @@ public class Day01Test {
      * 1、创建一个JavaBean(Student类),给其添加@Component注解使其成为一个spring组件
      * 2、编写配置类JavaConfig配置类，添加注解@Configuration、@ComponentScan(自动扫描包)
      *      @Controller,@Service,@Repository,@Component标识的Bean表示为spring的组件,
-     *      经过自动扫描包后，成为springIOC容器中的Bean
+            *      经过自动扫描包后，成为springIOC容器中的Bean
      * 3、ApplicationContext applicationContext=new AnnotationConfigApplicationContext(JavaConfig.class)获取springIOC容器对象
      * 4、容器对象context.getBean("student")获取该类的对象;
      */
@@ -132,14 +132,14 @@ public class Day01Test {
     @Test
     public void testScopeSingletonLazyBean(){
 
-        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(JavaConfig.class);
+    ApplicationContext applicationContext=new AnnotationConfigApplicationContext(JavaConfig.class);
         System.out.println("IOC容器对象创建完成...");
 
-        ScopeBean scopeBean=(ScopeBean) applicationContext.getBean("scopeBean");
-        ScopeBean scopeBean1=(ScopeBean) applicationContext.getBean("scopeBean");
+    ScopeBean scopeBean=(ScopeBean) applicationContext.getBean("scopeBean");
+    ScopeBean scopeBean1=(ScopeBean) applicationContext.getBean("scopeBean");
 
         System.out.println(scopeBean==scopeBean1);
 
-    }
+}
 
 }

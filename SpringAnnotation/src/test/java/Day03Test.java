@@ -15,8 +15,9 @@ public class Day03Test {
      * 一、给容器中导入bean
      *  1、@import:快速的给容器中注册一个组件(id默认全类名)
      *   例如:@Import({ Yellow.class, Green.class,MyImportSeleter.class})
-     *  2、ImportSelector:返回需要导入的组件的全类名数组
+     *  2、@import+ImportSelector:返回需要导入的组件的全类名数组
      *   例如：@Import({MyImportSeleter.class})，MyImportSeleter实现ImportSelector
+     *  3、@Import+ImportBeanDefinitionRegistrar
      */
 
 
