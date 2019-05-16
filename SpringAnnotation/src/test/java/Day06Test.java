@@ -1,3 +1,4 @@
+import com.naruto.day06.bean.Person;
 import com.naruto.day06.config.AutowiredJavaConfig;
 
 import com.naruto.day06.controller.PersonController;
@@ -77,11 +78,25 @@ public class Day06Test {
         StudentService studentService=(StudentService)applicationContext.getBean("studentService");
         System.out.println("studentService---"+studentService);
 
+    }
 
+    /**
+     * 三、自定义组件想要使用spring底层的一些组件(ApplicationContext,BeanFactory)
+     *  自定组件实现XXXAware:在创建对象时，会调用相关方法注入相关组件
+     *
+     */
+    @Test
+    public void testAware(){
+        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(AutowiredJavaConfig.class);
+        System.out.println("applicationContext---"+applicationContext);
 
+        Person person=(Person)applicationContext.getBean("person");
+        System.out.println("applicationContext---"+person.getApplicationContext());
 
+        System.out.println(applicationContext==person.getApplicationContext());
 
     }
+
 
 
 
