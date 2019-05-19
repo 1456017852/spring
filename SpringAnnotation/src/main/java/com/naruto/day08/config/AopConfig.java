@@ -2,26 +2,19 @@ package com.naruto.day08.config;
 
 import com.naruto.day08.utils.LogAspects;
 import com.naruto.day08.utils.MathUitls;
+import org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
+ *配置类
  *
  */
 @Configuration
-@EnableAspectJAutoProxy//开启AOP
+@ComponentScan("com.naruto.day08")
+@EnableAspectJAutoProxy//开启AOP注解
 public class AopConfig {
-
-    @Bean
-    public MathUitls mathUitls(){
-        return new MathUitls();
-    }
-
-    @Bean
-    public LogAspects logAspects(){
-        return new LogAspects();
-    }
-
 
 }
