@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class Day08Test {
     /**
-     *  面向切面：AOP
+     *  一、面向切面：AOP
      *  指在程序运行期间，动态的将某段代码切入到指定到方法的指定位置处进行运行的变成方式
      *
      *  1、导入依赖的spring-aspects
