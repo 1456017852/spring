@@ -9,7 +9,7 @@ import org.springframework.core.type.AnnotationMetadata;
 public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
 
     /**
-     * annotationMetadata: 当前配置类的注解元信息
+     * annotationMetadata: 当前配置类的元注解信息
      * beanDefinitionRegistry:Bean注册定义类，把所有需要注册到容器中的bean;
      *  调用registerBeanDefinition()方法手动注册进IOC容器
      *  调用

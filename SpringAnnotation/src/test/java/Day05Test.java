@@ -1,4 +1,5 @@
 import com.naruto.day05.bean.Person;
+import com.naruto.day05.bean.User;
 import com.naruto.day05.config.BeanPropertyConfig;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -20,6 +21,12 @@ public class Day05Test {
     public  void testBeanProperty(){
         Person person=(Person)applicationContext.getBean("person");
         System.out.println("person"+person);
+    }
+
+    @Test
+    public  void testBeanUserProperty(){
+        User user=(User)applicationContext.getBean("user");
+        System.out.println("user"+user);
     }
 
 
